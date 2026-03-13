@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="upload-form">
+    <h2>Upload ER Clustering Files</h2>
+    <p>Upload two CSV files, each with columns: <code>RecID</code>, <code>ClusterID</code></p>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file1">ER1 File (Baseline):</label>
+            <input type="file" id="file1" name="file1" accept=".csv" required>
+        </div>
+        <div class="form-group">
+            <label for="file2">ER2 File (Comparison):</label>
+            <input type="file" id="file2" name="file2" accept=".csv" required>
+        </div>
+        <button type="submit" class="btn">Analyze</button>
+    </form>
+</div>
+
+{% if show_results %}
+<div class="results">
+    <h2>Results</h2>
+
+    <div class="summary-report">
+        <h3>Summary Report</h3>
+        <pre>{{ summary_report }}</pre>
+    </div>
+
+    <div class="chart-container">
+        <h3>ER1 as Primary</h3>
+        <div class="chart-row">
+            <div id="bar-er1" class="chart-box"></div>
+            <div id="pie-er1" class="chart-box"></div>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <h3>ER2 as Primary</h3>
+        <div class="chart-row">
+            <div id="bar-er2" class="chart-box"></div>
+            <div id="pie-er2" class="chart-box"></div>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <h3>Raw Data</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RecID</th>
+                    <th>ER1 ClusterID</th>
+                    <th>ER2 ClusterID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in raw_data %}
+                <tr>
+                    <td>{{ row["RecID"] }}</td>
+                    <td>{{ row["ER1 ClusterID"] }}</td>
+                    <td>{{ row["ER2 ClusterID"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{% if show_results %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+    const er1Data = {{ summary["ER1_primary"]["bar_data"] | tojson }};
+    const er2Data = {{ summary["ER2_primary"]["bar_data"] | tojson }};
+
+    renderBarChart("bar-er1", er1Data, "{{ summary['ER1_primary']['title'] }}");
+    renderPieChart("pie-er1", er1Data, "{{ summary['ER1_primary']['title'] }}");
+    renderBarChart("bar-er2", er2Data, "{{ summary['ER2_primary']['title'] }}");
+    renderPieChart("pie-er2", er2Data, "{{ summary['ER2_primary']['title'] }}");
+</script>
+{% endif %}
+{% endblock %}
