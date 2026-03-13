@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "CCMS - Case Count Metric System"
+version: 1.0.0
+date-released: 2025-01-01
+url: "https://github.com/YOUR-ORG/ccms"
+authors:
+  - family-names: Talburt
+    given-names: John R.
+  - family-names: Mohammed
+    given-names: Muzakkiruddin Ahmed
+  - family-names: Cakmak
+    given-names: Mert Can
+  - family-names: Mohammed
+    given-names: Onais Khan
+  - family-names: Mohammed
+    given-names: Mahboob Khan
+  - family-names: Syed
+    given-names: Khizer
+  - family-names: Claassens
+    given-names: Leon
+preferred-citation:
+  type: article
+  title: "Case Count Metric for Comparative Analysis of Entity Resolution Results"
+  journal: "Frontiers in Big Data"
+  year: 2025
+  authors:
+    - family-names: Talburt
+      given-names: John R.
+    - family-names: Mohammed
+      given-names: Muzakkiruddin Ahmed
+    - family-names: Cakmak
+      given-names: Mert Can
+    - family-names: Mohammed
+      given-names: Onais Khan
+    - family-names: Mohammed
+      given-names: Mahboob Khan
+    - family-names: Syed
+      given-names: Khizer
+    - family-names: Claassens
+      given-names: Leon
