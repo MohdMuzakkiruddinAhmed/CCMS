@@ -2,8 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite the paper below."
 title: "CCMS - Case Count Metric System"
 version: 1.0.0
-date-released: 2025-01-01
-url: "https://github.com/YOUR-ORG/ccms"
+url: "https://github.com/MohdMuzakkiruddinAhmed/CCMS"
 authors:
   - family-names: Talburt
     given-names: John R.
@@ -23,7 +22,12 @@ preferred-citation:
   type: article
   title: "Case Count Metric for Comparative Analysis of Entity Resolution Results"
   journal: "Frontiers in Big Data"
-  year: 2025
+  year: 2026
+  month: 6
+  day: 11
+  volume: 9
+  start: 1736939
+  doi: 10.3389/fdata.2026.1736939
   authors:
     - family-names: Talburt
       given-names: John R.

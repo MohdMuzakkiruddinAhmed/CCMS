@@ -6,7 +6,7 @@ setup(
     description="Case Count Metric System for ER cluster comparison",
     author="Talburt et al.",
     author_email="mccakmak@ualr.edu",
-    url="https://github.com/YOUR-ORG/ccms",
+    url="https://github.com/MohdMuzakkiruddinAhmed/CCMS",
     packages=find_packages(),
     python_requires=">=3.8",
     install_requires=[],
